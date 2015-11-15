@@ -9,7 +9,9 @@
 namespace frontend\components;
 
 
-class ObjToArrayComponent {
+use yii\base\Component;
+
+class ObjToArrayComponent extends Component {
 
     private $array = [];
 
