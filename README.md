@@ -1,7 +1,5 @@
 HW2
-
-
-
+форма настройки сайта
 
 HW1
 Run http://example.com/index.php?r=greeting/index
