@@ -10,7 +10,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 ?>
 
-<?php $form = ActiveForm::begin(); ?>
+<?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
     <?= $form->field($model, 'title')->label('Название сайта') ?>
     <?= $form->field($model, 'description')->label('Описание сайта')->textarea() ?>
 
@@ -23,13 +23,17 @@ use yii\widgets\ActiveForm;
             '4' => 'Социальная сеть'
         ],
         ['prompt' => 'Выберите тип сайта...']
-    )->label('Выберите тип сайта') ?>
+    )->label('Выберите тип сайта')->hint('По умолчанию будет \'Блог\'') ?>
     <?= $form->field($model, 'siteUrl')->input('url')->hint('Адрес текущего веб-сайта') ?>
     <div style="border: solid">
         <h3 style="padding: 10px"> Введите данные владельца </h3>
+        <?= $form->field($model, 'name')->label('Ваше имя') ?>
+        <?= $form->field($model, 'gender')->radioList(
+            ['male' => 'Мужской','female' => 'Женский'])
+            ->label('Ваш пол') ?>
         <?= $form->field($model, 'email')->label('Адрес електронной почты') ?>
         <?= $form->field($model, 'ageCreator')->input('number')->label('Возраст владельца сайта') ?>
-        <?= $form->field($model, 'picture')->label('Загрузите фото') ?>
+        <?= $form->field($model, 'image')->fileInput()->label('Загрузите фото') ?>
         <?= $form->field($model, 'phoneNumber')->label('Введите номер телефона') ?>
     </div>
     <div class="form-group">

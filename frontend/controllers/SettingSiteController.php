@@ -11,6 +11,7 @@ namespace frontend\controllers;
 use Yii;
 use frontend\models\SettingSiteForm;
 use yii\base\Controller;
+use yii\web\UploadedFile;
 
 class SettingSiteController extends Controller
 {
@@ -18,12 +19,18 @@ class SettingSiteController extends Controller
     public function actionEntry()
     {
         $model = new SettingSiteForm();
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            return $this->render('entry-confirm', ['model' => $model]);
+        if (Yii::$app->request->isPost) {
+            $model->image = UploadedFile::getInstance($model, 'image');
+            if ($model->load(Yii::$app->request->post()) &&
+                $model->validate()
+            ) {
+                $model->uploadImage();
+                return $this->render('entry-confirm', ['model' => $model]);
+            }
         }
-        else {
-            return $this->render('entry', ['model' => $model]);
-        }
+
+        return $this->render('entry', ['model' => $model]);
     }
+
 
 }

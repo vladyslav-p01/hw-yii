@@ -14,5 +14,16 @@ use yii\helpers\Html;
 <ul>
     <li><label>Title</label>: <?= Html::encode($model->title) ?></li>
     <li><label>Description</label>: <?= Html::encode($model->description) ?></li>
+    <li><label>siteType</label>: <?= Html::encode($model->siteType) ?></li>
+    <li><label>siteUrl</label>: <?= Html::encode($model->siteUrl) ?></li>
+    <hr>
+    <li><label>name</label>: <?= Html::encode($model->name) ?></li>
+    <li><label>gender</label>: <?= Html::encode($model->gender) ?></li>
     <li><label>Email</label>: <?= Html::encode($model->email) ?></li>
+    <li><label>ageCreator</label>: <?= Html::encode($model->ageCreator) ?></li>
+    <li><label>image</label>: <?= Html::encode($model->image) ?></li>
+    <li><label>phoneNumber</label>: <?= Html::encode($model->phoneNumber) ?></li>
+
+
 </ul>
+
