@@ -8,23 +8,26 @@
 
 namespace frontend\controllers;
 
-use \frontend\models\UploadForm;
 use Yii;
+use \frontend\models\UploadForm;
 use yii\web\Controller;
 use yii\web\UploadedFile;
 
 class FileInputController extends Controller {
 
-    public function actionUploading()
+
+    public function actionUpload()
     {
         $model = new UploadForm();
 
         if (Yii::$app->request->isPost) {
-            $model->image = UploadedFile::getInstance($model, 'image');
-            if ($model->upload()) {
-                // file is uploaded successfully
-                return "<img src=\"uploads/" . $model->image . "\">";
+            $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+            $model->validate();
+            if ($model->imageFile) {
+                $model->upload();
+                return "<img src='/uploads/$model->imageFile'>";
             }
+            return "You haven't uploaded file!";
         }
         return $this->render('upload-form', ['model' => $model]);
     }

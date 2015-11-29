@@ -1,43 +1,31 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: user
- * Date: 21.11.15
- * Time: 22:48
- */
 
 namespace frontend\models;
 
 use yii\base\Model;
 use yii\web\UploadedFile;
 
+class UploadForm extends Model
+{
+/**
+* @var UploadedFile
+*/
+public $imageFile;
 
-class UploadForm extends Model {
+public function rules()
+{
+return [
+[['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
+];
+}
 
-    /*
-     * @var UploadedFile
-     */
-    public $image;
-
-
-    public function rules()
-    {
-        return [
-            [
-                ['image'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg']
-        ];
-    }
-
-    public function upload()
-    {
-        if ($this->validate()) {
-            $this->image->saveAs('uploads/'.$this->image->baseName.'.'
-                .$this->image->extension);
-            return true;
-        }
-        else {
-            return false;
-        }
-    }
-
+public function upload()
+{
+if ($this->validate()) {
+$this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . '.' . $this->imageFile->extension);
+return true;
+} else {
+return false;
+}
+}
 }

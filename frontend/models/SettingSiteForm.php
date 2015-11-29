@@ -13,10 +13,6 @@ use yii\base\Model;
 use yii\web\UploadedFile;
 
 
-/**
- * Class SettingSiteForm
- */
-
 class SettingSiteForm extends Model {
 
     public $title;
@@ -26,7 +22,7 @@ class SettingSiteForm extends Model {
     public $siteUrl;
     public $ageCreator;
     /**
-     * UploadedFile
+     * @var UploadedFile
      */
     public $imageFile;
     public $phoneNumber;
