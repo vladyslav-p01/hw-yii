@@ -14,12 +14,11 @@ use yii\web\UploadedFile;
 
 class UploadForm extends Model {
 
+    /*
+     * @var UploadedFile
+     */
     public $image;
 
-    /**
-     * @var UploadedFile
-     * @return array
-     */
 
     public function rules()
     {

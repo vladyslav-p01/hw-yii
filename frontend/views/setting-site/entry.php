@@ -33,7 +33,7 @@ use yii\widgets\ActiveForm;
             ->label('Ваш пол') ?>
         <?= $form->field($model, 'email')->label('Адрес електронной почты') ?>
         <?= $form->field($model, 'ageCreator')->input('number')->label('Возраст владельца сайта') ?>
-        <?= $form->field($model, 'image')->fileInput()->label('Загрузите фото') ?>
+        <?= $form->field($model, 'imageFile')->fileInput()->label('Загрузите фото') ?>
         <?= $form->field($model, 'phoneNumber')->label('Введите номер телефона') ?>
     </div>
     <div class="form-group">

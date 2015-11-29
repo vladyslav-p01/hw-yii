@@ -7,7 +7,7 @@
  */
 ?>
 
-<form action="index.php" method="get">
+<form action="/greeting/add" method="get">
     <fieldset>
         <legend>Enter numbers for adding</legend>
         <label for="number_a">a: </label>
@@ -15,7 +15,6 @@
         <label for="number_b">b: </label>
         <input type="text" name="b" id="number_b">
         <input type="submit">
-        <input type="hidden" name="r" value="greeting/add">
     </fieldset>
     <label>
 </form>

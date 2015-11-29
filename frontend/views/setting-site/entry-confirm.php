@@ -21,7 +21,7 @@ use yii\helpers\Html;
     <li><label>gender</label>: <?= Html::encode($model->gender) ?></li>
     <li><label>Email</label>: <?= Html::encode($model->email) ?></li>
     <li><label>ageCreator</label>: <?= Html::encode($model->ageCreator) ?></li>
-    <li><label>image</label>: <?= Html::encode($model->image) ?></li>
+    <li><label>imageFile</label>: <?= Html::encode($model->imageFile) ?></li>
     <li><label>phoneNumber</label>: <?= Html::encode($model->phoneNumber) ?></li>
 
 

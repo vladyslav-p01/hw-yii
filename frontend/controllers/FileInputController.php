@@ -23,7 +23,7 @@ class FileInputController extends Controller {
             $model->image = UploadedFile::getInstance($model, 'image');
             if ($model->upload()) {
                 // file is uploaded successfully
-                return "<img src=\"uploads/" . UploadedFile::name . "\">";
+                return "<img src=\"uploads/" . $model->image . "\">";
             }
         }
         return $this->render('upload-form', ['model' => $model]);
