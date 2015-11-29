@@ -20,14 +20,11 @@ class SettingSiteController extends Controller
     {
         $model = new SettingSiteForm();
         if (Yii::$app->request->isPost) {
-            //$model->imageFile = UploadedFile::getInstance($model, 'imageFile');
             if ($model->load(Yii::$app->request->post()) &&
                 $model->validate()
-            ) {/*
-                if ($model->imageFile !== null) {
-                    $model->uploadImage();
-
-                }*/
+            ) {
+                $model->imageFile = UploadedFile::getInstance($model, 'imageFile');
+                $model->uploadImage();
                 return $this->render('entry-confirm', ['model' => $model]);
             }
         }

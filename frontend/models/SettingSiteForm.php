@@ -34,19 +34,19 @@ class SettingSiteForm extends Model {
     public function rules()
     {
         return [
-            /*[['title', 'email', 'name', 'gender'], 'required',
+            [['title', 'email', 'name', 'gender'], 'required',
                 'message' => 'Данное поле обязательно к заполнению'],
             [['title', 'name'], 'string', 'length' => [3, 20],
                 'message' => 'Пожалуйста проверьте правильность данных'],
             ['email', 'email'],
             ['ageCreator', 'integer', 'min' => 18, 'max' => 100,
                 'message' => 'Введите реальный возраст'],
-            ['siteType', 'default', 'value' => 'Блог'],*/
+            ['siteType', 'default', 'value' => 'Блог'],
             [['imageFile'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, jpeg'],
-            /*['phoneNumber', 'match', 'pattern' => '/^\+380\d{9}$/',
+            ['phoneNumber', 'match', 'pattern' => '/^\+380\d{9}$/',
                 'message' => 'Пожалуйста введите корректный номер телефона'],
             ['siteUrl', 'url', 'message' => 'Пожалуйста введите адрес сайта начиная с http://'],
-            ['gender', 'in', 'range' => ['male', 'female'], 'message' => 'Пожалуйта укажите Ваш пол']*/
+            ['gender', 'in', 'range' => ['male', 'female'], 'message' => 'Пожалуйта укажите Ваш пол']
 
 
 
@@ -55,11 +55,12 @@ class SettingSiteForm extends Model {
 
     public function uploadImage()
     {
-        if (!$this->hasErrors()) {
+        if ($this->imageFile) {
             $this->imageFile->saveAs('uploads/' . $this->imageFile->baseName . '.'
                 . $this->imageFile->extension);
             return true;
         } else {
+            $this->imageFile = "Picture is not uploaded";
             return false;
         }
 
