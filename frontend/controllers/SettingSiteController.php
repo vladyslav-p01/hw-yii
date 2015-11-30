@@ -19,6 +19,7 @@ class SettingSiteController extends Controller
     public function actionEntry()
     {
         $model = new Sites();
+
         if (Yii::$app->request->isPost) {
             if ($model->load(Yii::$app->request->post()) &&
                 $model->validate()

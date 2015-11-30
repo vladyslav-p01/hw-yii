@@ -3,6 +3,7 @@
 namespace frontend\models;
 
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "sites".
@@ -12,18 +13,28 @@ use Yii;
  * @property string $description
  * @property string $site_type
  * @property string $site_url
- * @property string $image_file
+ *
+ * var UploadedFile
+ * property string image_file
+ *
  * @property string $phone_number
  * @property string $user_name
  * @property string $gender
- * property integer $age_creator
- * property string $email
+ * @property integer $age_creator
+ * @property string $email
  */
 class Sites extends \yii\db\ActiveRecord
 {
 
-    public $email;
-    public $age_creator;
+    /**
+     * @var UploadedFile
+     *
+     */
+    public $image_file;
+
+
+//    public $email;
+//    public $age_creator;
 
     /**
      * @inheritdoc
