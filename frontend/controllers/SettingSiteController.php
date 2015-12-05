@@ -8,31 +8,70 @@
 
 namespace frontend\controllers;
 
+use frontend\models\Gender;
+use frontend\models\Order;
+use frontend\models\SiteType;
 use Yii;
-use frontend\models\Sites;
+use frontend\models\Site;
 use yii\base\Controller;
 use yii\web\UploadedFile;
+use frontend\models\User;
+use frontend\components\ObjToArrayComponent;
 
 class SettingSiteController extends Controller
 {
 
-    public function actionEntry()
+    public function actionSiteEntry()
     {
-        $model = new Sites();
+        $site = new Site();
+        $user = new User();
+        $order = new Order();
 
         if (Yii::$app->request->isPost) {
-            if ($model->load(Yii::$app->request->post()) &&
-                $model->validate()
+
+            if (
+                $site->load(Yii::$app->request->post()) &&
+                $site->validate() &&
+
+                $user->load(Yii::$app->request->post()) &&
+                $user->validate()
             ) {
-                $model->image_file = UploadedFile::getInstance($model, 'image_file');
-                $model->uploadImage();
-                //$model->save();
-                return $this->render('entry-confirm-db', ['model' => $model]);
+                $user->photo = UploadedFile::getInstance($user, 'photo');
+                $user->uploadImage();
+                $site->save();
+                return $this->render('entry-confirm-db', [
+                    'site' => $site,
+                    'user' => $user
+                ]);
             }
         }
 
-        return $this->render('entry-db', ['model' => $model]);
+        $siteTypes = SiteType::find()->all();
+        $genders = Gender::find()->all();
+
+        $convertor = new ObjToArrayComponent();
+
+        $siteTypes = $convertor->arrayWithObjToArray($siteTypes);
+        $genders = $convertor->arrayWithObjToArray($genders);
+
+        return $this->render('entry-db', [
+            'site' => $site,
+            'user' => $user,
+            'genders' => $genders,
+            'siteTypes' => $siteTypes
+        ]);
     }
+
+    public function actionShowAll()
+    {
+        $model = new Sites();
+
+        $result = Sites::find()->indexBy('id')->all();
+        var_dump($result);
+        $this->render('db-results', $result);
+    }
+
+
 
 
 }

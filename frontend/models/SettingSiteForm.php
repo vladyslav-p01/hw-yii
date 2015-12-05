@@ -46,7 +46,8 @@ class SettingSiteForm extends Model {
             ['phoneNumber', 'match', 'pattern' => '/^\+380\d{9}$/',
                 'message' => 'Пожалуйста введите корректный номер телефона'],
             ['siteUrl', 'url', 'message' => 'Пожалуйста введите адрес сайта начиная с http://'],
-            ['gender', 'in', 'range' => ['male', 'female'], 'message' => 'Пожалуйта укажите Ваш пол']
+            ['gender', 'in', 'range' => ['male', 'female'], 'message' => 'Пожалуйта укажите Ваш пол'],
+
 
 
 

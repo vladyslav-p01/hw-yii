@@ -6,23 +6,28 @@
  * Time: 19:06
  */
 
+
+/**
+ * @var $site
+ * @var $user
+ */
 use yii\helpers\Html;
 ?>
 
 <p>Вы ввели следующую информацию:</p>
 
 <ul>
-    <li><label>Title</label>: <?= Html::encode($model->title) ?></li>
-    <li><label>Description</label>: <?= Html::encode($model->description) ?></li>
-    <li><label>siteType</label>: <?= Html::encode($model->site_type) ?></li>
-    <li><label>siteUrl</label>: <?= Html::encode($model->site_url) ?></li>
+    <li><label>Title</label>: <?= Html::encode($site->title) ?></li>
+    <li><label>Description</label>: <?= Html::encode($site->description) ?></li>
+    <li><label>siteType</label>: <?= Html::encode($site->site_type_id) ?></li>
+    <li><label>siteUrl</label>: <?= Html::encode($site->site_url) ?></li>
     <hr>
-    <li><label>name</label>: <?= Html::encode($model->user_name) ?></li>
-    <li><label>gender</label>: <?= Html::encode($model->gender) ?></li>
-    <li><label>Email</label>: <?= Html::encode($model->email) ?></li>
-    <li><label>ageCreator</label>: <?= Html::encode($model->age_creator) ?></li>
-    <li><label>imageFile</label>: <?= Html::encode($model->image_file) ?></li>
-    <li><label>phoneNumber</label>: <?= Html::encode($model->phone_number) ?></li>
+    <li><label>name</label>: <?= Html::encode($user->username) ?></li>
+    <li><label>gender</label>: <?= Html::encode($user->gender_id) ?></li>
+    <li><label>Email</label>: <?= Html::encode($user->email) ?></li>
+    <li><label>ageCreator</label>: <?= Html::encode($user->age) ?></li>
+    <li><label>imageFile</label>: <?= Html::encode($user->photo) ?></li>
+    <li><label>phoneNumber</label>: <?= Html::encode($user->phone) ?></li>
 
 
 </ul>

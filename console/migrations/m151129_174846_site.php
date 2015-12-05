@@ -3,28 +3,25 @@
 use yii\db\Schema;
 use yii\db\Migration;
 
-class m151129_174846_first extends Migration
+class m151129_174846_site extends Migration
 {
     public function up()
     {
-        $this->createTable('sites', [
+        $tableOptions = 'CHARACTER SET utf8 COLLATE utf8_unicode_ci ENGINE=InnoDB';
+
+        $this->createTable('site', [
             'id' => $this->primaryKey(),
             'title' => $this->string()->notNull(),
             'description' => $this->text(),
-            'site_type' => $this->string(),
+            'site_type_id' => $this->integer(2),
             'site_url' => $this->string(),
-            'image_file' => $this->string(),
-            'phone_number' => $this->string(),
-            'user_name' => $this->string(),
-            'gender' => $this->string(),
-        ]);
+        ], $tableOptions);
     }
 
     public function down()
     {
 
-       $this->dropTable('sites');
-       return true;
+       $this->dropTable('site');
 
     }
 
