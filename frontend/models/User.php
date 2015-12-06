@@ -107,7 +107,7 @@ class User extends \yii\db\ActiveRecord
 
     public function getSites()
     {
-        return $this->hasMany(Site::className(), ['id' => ''])
+        return $this->hasMany(Site::className(), ['owner_id' => 'id']);
     }
 
     public function uploadImage()
@@ -119,7 +119,7 @@ class User extends \yii\db\ActiveRecord
             $this->photo = $this->photo->getBaseName() . ' ' . $this->photo->extension;
             return true;
         } else {
-            $this->photo = "Picture is not uploaded";
+            $this->photo = '';
             return false;
         }
 

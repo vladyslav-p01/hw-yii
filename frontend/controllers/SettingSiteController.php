@@ -40,7 +40,7 @@ class SettingSiteController extends Controller
                 Yii::$app->response->format = Response::FORMAT_JSON;
                 return ActiveForm::validate($user);
             }
-            return 'TruLala';
+            return false;
         }
 
         if (Yii::$app->request->isPost) {
@@ -54,8 +54,11 @@ class SettingSiteController extends Controller
             ) {
                 $user->photo = UploadedFile::getInstance($user, 'photo');
                 $user->uploadImage();
-                $site->save();
                 $user->save();
+
+                $site->owner_id = $user->id;
+                $site->save();
+
                 return $this->render('entry-confirm-db', [
                     'site' => $site,
                     'user' => $user
@@ -81,12 +84,12 @@ class SettingSiteController extends Controller
 
     public function actionShowAll()
     {
-        $model = new Order();
+        $model = new User();
 
-        $result = Order::find()->all();
+        $users = User::find()->all();
         //echo $result[0]->user->username;
         //var_dump($result);
-        return $this->render('db-results', ['result' => $result]);
+        return $this->render('db-results', ['users' => $users]);
     }
 
 

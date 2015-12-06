@@ -18,7 +18,6 @@ class m151129_160959_site_type extends Migration
     public function down()
     {
         $this->dropTable('site_type');
-        return false;
     }
 
     /*

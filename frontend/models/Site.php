@@ -56,6 +56,7 @@ class Site extends \yii\db\ActiveRecord
 
             [['title'], 'string', 'length' => [3, 20],
                 'message' => 'Пожалуйста проверьте правильность данных'],
+            [['description'], 'string', 'length' => [5, 100]],
 
             ['site_type_id', 'default', 'value' => 1],
 
