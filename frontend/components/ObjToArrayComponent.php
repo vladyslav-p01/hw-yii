@@ -15,10 +15,20 @@ class ObjToArrayComponent extends Component {
 
     private $array = [];
 
-    public function convertToArr($obj)
+    public function objToArr($obj)
     {
+        $this->array = [];
         foreach ($obj as $key => $field) {
             $this->array[$key] = $field;
+        }
+        return $this->array;
+    }
+
+    public function arrayWithObjToArray($ArrObj)
+    {
+        $this->array = [];
+        foreach ($ArrObj as $object) {
+            $this->array[$object->id] = $object->title;
         }
         return $this->array;
     }

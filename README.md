@@ -1,57 +1,48 @@
+Поскольку делал третью домашку и доправлял вторую, поэтому вышло что и вторая и третья будет в одной ветке.
+
+HW3
+
+Создана модель пользователь, сайт, тип сайта и (на случай если типы сайта будут меняться или добаляться) и gender (не хорошо, но это была первая мысль об oneToMany)
+OneToMany пользователь => сайты которые он создал
+OneToOne сайт может иметь только одного владельца
+
+Вьюшка отображает пользователя и сайты которые он создал + в отдельной табл. информация о пользователях (название пола загружаеться с табл gender)
+
+
+
+HW2
+форма настройки сайта
+
+Пользователь, при создании сайта указывает основные параметры сайта. А также указывает свои данные.
+
+
+
++Подключить ajax валидацию
++-Использовать свои стили (есть что-то в тегах style)
+
+в форме должны присутствовать:
++дропдаун лист (тип сайта)
+-чек бокс
++простые поля
++радиобаттоны (выбор пола пользователя)
++-загрузка файла (загрузка фото)
+
+не меньше 10 полей
+
+Валидаторы которые должны присутствовать:
++Обязательные поля (все кроме фото и описания)
+-Валидатор сравнения
++Значение по умолчанию (тип сайта - по умолчанию блог)
++Email валидатор
++Валидатор Range (возраст от 18 до 100)
++Валидатор с регулярным выражением(для ввода телефона)
++Строковый валидатор
+URL валидатор
++Валидатор изображений (загрузка фото)
+
+Контроллер: SettingSiteController
+Модель: пользователь - User. Сайт - Site.
+
+
+HW1
 Run http://example.com/index.php?r=greeting/index
-
-
-Yii 2 Advanced Project Template
-===============================
-
-Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
-developing complex Web applications with multiple tiers.
-
-The template includes three tiers: front end, back end, and console, each of which
-is a separate Yii application.
-
-The template is designed to work in a team development environment. It supports
-deploying the application in different environments.
-
-Documentation is at [docs/guide/README.md](docs/guide/README.md).
-
-[![Latest Stable Version](https://poser.pugx.org/yiisoft/yii2-app-advanced/v/stable.png)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Total Downloads](https://poser.pugx.org/yiisoft/yii2-app-advanced/downloads.png)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Build Status](https://travis-ci.org/yiisoft/yii2-app-advanced.svg?branch=master)](https://travis-ci.org/yiisoft/yii2-app-advanced)
-
-DIRECTORY STRUCTURE
--------------------
-
-```
-common
-    config/              contains shared configurations
-    mail/                contains view files for e-mails
-    models/              contains model classes used in both backend and frontend
-console
-    config/              contains console configurations
-    controllers/         contains console controllers (commands)
-    migrations/          contains database migrations
-    models/              contains console-specific model classes
-    runtime/             contains files generated during runtime
-backend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains backend configurations
-    controllers/         contains Web controller classes
-    models/              contains backend-specific model classes
-    runtime/             contains files generated during runtime
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-frontend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains frontend configurations
-    controllers/         contains Web controller classes
-    models/              contains frontend-specific model classes
-    runtime/             contains files generated during runtime
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-    widgets/             contains frontend widgets
-vendor/                  contains dependent 3rd-party packages
-environments/            contains environment-based overrides
-tests                    contains various tests for the advanced application
-    codeception/         contains tests developed with Codeception PHP Testing Framework
-```
