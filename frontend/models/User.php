@@ -105,6 +105,11 @@ class User extends \yii\db\ActiveRecord
         return $this->hasOne(Gender::className(), ['id' => 'gender_id']);
     }
 
+    public function getSites()
+    {
+        return $this->hasMany(Site::className(), ['id' => ''])
+    }
+
     public function uploadImage()
     {
         if ($this->photo instanceof UploadedFile) {

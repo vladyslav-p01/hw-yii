@@ -11,17 +11,32 @@ class m151129_174846_site extends Migration
 
         $this->createTable('site', [
             'id' => $this->primaryKey(),
+            'owner_id' => $this->integer(3)->notNull(),
             'title' => $this->string()->notNull(),
             'description' => $this->text(),
             'site_type_id' => $this->integer(2),
             'site_url' => $this->string(),
         ], $tableOptions);
+
+
+        /*$this->addForeignKey('fk-order-user_id',
+            'order', 'user_id', 'user', 'id', 'CASCADE');*/
+
+
+        $this->addForeignKey('fk-site-owner_id',
+            'site', 'owner_id', 'user', 'id', 'CASCADE');
+
+        $this->addForeignKey('fk-site-site_type_id', 'site',
+            'site_type_id', 'site_type', 'id', 'CASCADE');
+
     }
+
 
     public function down()
     {
-
-       $this->dropTable('site');
+        $this->dropForeignKey('fk-site-owner_id', 'site');
+        $this->dropForeignKey('fk-site-site_type_id', 'site');
+        $this->dropTable('site');
 
     }
 

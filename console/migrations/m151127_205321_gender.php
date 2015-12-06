@@ -3,7 +3,7 @@
 use yii\db\Schema;
 use yii\db\Migration;
 
-class m151205_205321_gender extends Migration
+class m151127_205321_gender extends Migration
 {
     public function up()
     {

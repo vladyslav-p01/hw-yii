@@ -18,6 +18,7 @@ class m151205_225205_orderAndFK extends Migration
 
         $this->addForeignKey('fk-order-site_id',
             'order', 'site_id', 'site', 'id', 'CASCADE');
+
     }
 
     public function down()

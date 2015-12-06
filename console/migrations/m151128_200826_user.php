@@ -3,7 +3,7 @@
 use yii\db\Schema;
 use yii\db\Migration;
 
-class m151205_200826_user extends Migration
+class m151128_200826_user extends Migration
 {
 
     public function up()
@@ -21,10 +21,14 @@ class m151205_200826_user extends Migration
         ], $tableOptions);
 
 
+        $this->addForeignKey('fk-user-gender_id', 'user',
+            'gender_id', 'gender', 'id', 'CASCADE');
+
     }
 
     public function down()
     {
+        $this->dropForeignKey('fk-user-gender_id', 'user');
         $this->dropTable('user');
     }
 

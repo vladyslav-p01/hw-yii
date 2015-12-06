@@ -50,9 +50,9 @@ class Order extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getSite()
+    public function getSites()
     {
-        return $this->hasOne(Site::className(), ['id' => 'site_id']);
+        return $this->hasMany(Site::className(), ['id' => 'site_id']);
     }
 
     /**

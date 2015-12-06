@@ -32,12 +32,15 @@ use yii\widgets\ActiveForm;
 
 <div style="border: solid">
     <h3 style="padding: 10px"> Введите данные владельца </h3>
-    <?= $form->field($user, 'username')->label('Ваше имя') ?>
+    <?= $form->field($user, 'username',
+        ['enableAjaxValidation' => true])->label('Ваше имя') ?>
     <?= $form->field($user, 'gender_id')->radioList($genders)->label('Ваш пол') ?>
-    <?= $form->field($user, 'email')->label('Адрес електронной почты') ?>
+    <?= $form->field($user, 'email',
+        ['enableAjaxValidation' => true])->label('Адрес електронной почты') ?>
     <?= $form->field($user, 'age')->input('number')->label('Возраст владельца сайта') ?>
     <?= $form->field($user, 'photo')->fileInput()->label('Загрузите фото') ?>
-    <?= $form->field($user, 'phone')->label('Введите номер телефона') ?>
+    <?= $form->field($user, 'phone',
+        ['enableAjaxValidation' => true])->label('Введите номер телефона') ?>
 </div>
 
     <div class="form-group">

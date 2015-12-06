@@ -57,9 +57,9 @@ class Site extends \yii\db\ActiveRecord
             [['title'], 'string', 'length' => [3, 20],
                 'message' => 'Пожалуйста проверьте правильность данных'],
 
-            ['site_type_id', 'default', 'value' => 'Блог'],
+            ['site_type_id', 'default', 'value' => 1],
 
-            ['site_url', 'url', 'message' => 'Пожалуйста введите адрес сайта начиная с http://'],
+            ['site_url', 'url', 'message' => 'Пожалуйста введите адрес сайта в формате http://example.com'],
             ['site_url', 'unique', 'targetClass' => '\frontend\models\Site', 'message' => 'Данный URL уже занят']
         ];
     }
@@ -82,6 +82,8 @@ class Site extends \yii\db\ActiveRecord
             'gender' => 'Gender',
         ];
     }
+
+
 
 
 }
