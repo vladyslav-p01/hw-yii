@@ -66,7 +66,7 @@ class User extends \yii\db\ActiveRecord
                 'message' =>
                     'Введите реальный возраст'],
 
-            [['photo'], 'file',
+            [['photo'], 'image',
                 'skipOnEmpty' => true,
                 'extensions' => 'png, jpg, jpeg'],
 
@@ -116,7 +116,7 @@ class User extends \yii\db\ActiveRecord
             $this->photo->saveAs('uploads/' . $this->photo->baseName . '.'
                 . $this->photo->extension);
             // set text for recording to db
-            $this->photo = $this->photo->getBaseName() . ' ' . $this->photo->extension;
+            $this->photo = $this->photo->getBaseName() . '.' . $this->photo->extension;
             return true;
         } else {
             $this->photo = '';
