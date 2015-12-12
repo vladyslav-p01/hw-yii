@@ -22,12 +22,12 @@ use yii\widgets\ActiveForm;
 
 class SettingSiteController extends Controller
 {
+    public $layout = 'site';
 
     public function actionSiteEntry()
     {
         $site = new Site();
         $user = new User();
-        $order = new Order();
 
 
         if (Yii::$app->request->isAjax) {

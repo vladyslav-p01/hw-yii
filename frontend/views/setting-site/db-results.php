@@ -12,25 +12,8 @@
 use yii\helpers\Html;
 //var_dump($result);
 ?>
-<style>
-    table {
-        border: 1px solid #000000
-        border-collapse: collapse;
-    }
-    td {
-        border: solid 1px #000000;
-    }
-    th {
-        border: 1px solid #000000;
-        text-align: center;
-    }
-    thead {
-        text-align: center;
-        font-weight: 500;
-    }
-</style>
 
-<table>
+<table class="layout-for-table">
     <tr>
         <th>Пользователи</th>
         <th>Пользовательские сайты</th>
@@ -48,9 +31,8 @@ use yii\helpers\Html;
         </tr>
     <?php endforeach; ?>
 </table>
-
 <h1 align="center">Информация о пользователях</h1>
-<table>
+<table class="layout-for-table">
     <thead>
         <tr>
             <th>Имя пользователя</th>
