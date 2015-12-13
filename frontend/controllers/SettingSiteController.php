@@ -9,7 +9,6 @@
 namespace frontend\controllers;
 
 use frontend\models\Gender;
-use frontend\models\Order;
 use frontend\models\SiteType;
 use Yii;
 use frontend\models\Site;
@@ -19,15 +18,16 @@ use frontend\models\User;
 use frontend\components\ObjToArrayComponent;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
+use yii\data\ActiveDataProvider;
 
 class SettingSiteController extends Controller
 {
+    public $layout = 'site';
 
     public function actionSiteEntry()
     {
         $site = new Site();
         $user = new User();
-        $order = new Order();
 
 
         if (Yii::$app->request->isAjax) {
@@ -84,12 +84,16 @@ class SettingSiteController extends Controller
 
     public function actionShowAll()
     {
-        $model = new User();
+        $users = User::find()/*->all()*/;
+        $dataProvider = new ActiveDataProvider([
+            'query' => $users,
+            'pagination' => [
+                'pageSize' => 5,
+            ],
+        ]);
 
-        $users = User::find()->all();
-        //echo $result[0]->user->username;
-        //var_dump($result);
-        return $this->render('db-results', ['users' => $users]);
+
+        return $this->render('grid-view' /*'db-results'*/, ['dataProvider' => $dataProvider, 'users' => $users]);
     }
 
 
