@@ -14,27 +14,10 @@ use yii\web\UploadedFile;
  * @property string $site_type_id
  * @property string $site_url
  *
- * var UploadedFile
- * property string image_file
- *
- * @property string $phone_number
- * @property string $user_name
- * @property string $gender
- * @property integer $age_creator
- * @property string $email
+
  */
 class Site extends \yii\db\ActiveRecord
 {
-
-    /**
-     * @var UploadedFile
-     *
-     */
-    public $image_file;
-
-
-//    public $email;
-//    public $age_creator;
 
     /**
      * @inheritdoc
@@ -76,15 +59,8 @@ class Site extends \yii\db\ActiveRecord
             'title' => 'Title',
             'description' => 'Description',
             'site_type_id' => 'Site Type',
-            'site_url' => 'Site Url',
-            'image_file' => 'Image File',
-            'phone_number' => 'Phone Number',
-            'user_name' => 'User Name',
-            'gender' => 'Gender',
+            'site_url' => 'Site Url'
         ];
     }
-
-
-
 
 }

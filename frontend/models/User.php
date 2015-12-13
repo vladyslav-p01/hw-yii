@@ -87,12 +87,12 @@ class User extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'username' => 'Username',
+            'username' => 'Имя пользователя',
             'email' => 'Email',
-            'age' => 'Age',
-            'gender_id' => 'Gender ID',
-            'phone' => 'Phone',
-            'photo' => 'Photo',
+            'age' => 'Возраст',
+            'gender_id' => 'Пол',
+            'phone' => 'Телефон',
+            'photo' => 'Фото',
         ];
     }
 
